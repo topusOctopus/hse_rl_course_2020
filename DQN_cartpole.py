@@ -54,7 +54,7 @@ def reward_curve(values, title=args.t):
     x = range(len(values))
     ax.legend()
     ax.grid()
-    plt.savefig(os.path.join(args.img, 'reward_curve.png'))
+    plt.savefig(os.path.join(args.img, 'reward_curve_cartpole.png'))
 
 
 def q_learning(env, model, episodes=args.episodes, gamma=args.g, epsilon=args.eps, eps_decay=args.eps_decay, replay=args.replay, replay_size=args.replay_size):
@@ -180,7 +180,7 @@ def main():
 		dqn_replay_memory = DeepQlearning_replay_mode(states, actions)
 		replay_memory = q_learning(env, dqn_replay_memory)
 	else:
-		simple_dqn = DQN(states, actions)
+		simple_dqn = DeepQlearning(states, actions)
 		simple = q_learning(env, simple_dqn)
 	print('------- DONE! -------')
 
