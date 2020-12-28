@@ -1,0 +1,8 @@
+Solution for naive.py & initial_naive.py
+Task: To find an issue
+
+Describtion:
+In file "initial_naive.py" 'generate_session' function we always choose action using argmax which is incorrect. 
+In normal version of this algorithm "naive.py" we use np.random.choise which is correct, because here we are getting
+an actions according to probabilities which was predicted by the agent. We can say we need pick them stochastically.
+One more difference between 2 scripts is in "choose_elite function" in correct one it was decided to concat states and actions.
