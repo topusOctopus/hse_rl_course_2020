@@ -27,7 +27,7 @@ parser.add_argument('-lr', type=float, default=0.001,
 					help='learning rate')
 parser.add_argument('-e_decay', type=float, default=0.995, 
 					help='epsilon_decay value')
-parser.add_argument('-m', type=int, default=100000, 
+parser.add_argument('-m', type=int, default=10000, 
 					help='memory max capacity')
 parser.add_argument('-hd', type=int, default=64, 
 					help='hidden_size')
@@ -46,8 +46,8 @@ class DeepQlearning:
 
     def model(self):
         model = keras.Sequential()
-        model.add(Dense(20, input_dim=self.state_space, activation=keras.activations.relu))
-        model.add(Dense(25, activation=keras.activations.relu))
+        model.add(Dense(args.hd, input_dim=self.state_space, activation=keras.activations.relu))
+        model.add(Dense(args.hd*2, activation=keras.activations.relu))
         model.add(Dense(self.action_space, activation=keras.activations.linear))
         model.compile(loss='mse', optimizer=keras.optimizers.Adam(lr=args.lr))
         return model
