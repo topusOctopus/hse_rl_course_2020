@@ -1,0 +1,8 @@
+gym
+numpy
+torch
+keras
+tensorflow==2.2.0
+argparse
+matplotlib
+collections
